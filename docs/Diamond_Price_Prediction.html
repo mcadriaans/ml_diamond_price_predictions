@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Diamond_Price_Prediction_0_07932700_1793033852</title><script src="file:///usr/share/javascript/requirejs/require.min.js"></script>
+<title>Diamond_Price_Prediction_0_16238200_1793040613</title><script src="file:///usr/share/javascript/requirejs/require.min.js"></script>
 
 
 
@@ -19453,11 +19453,11 @@ max        4.000000      6.000000      7.000000
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><font size=4, color=#4169E1>💎<b>OBSERVATIONS</b></font></p>
 <ul>
-<li><p>The <b>RMSE of 1016.7</b> equivalent to <b>25.5% of the mean diamond price</b>, indicates that while the model captures the overall pricing patterns effectively, there is still meaningful prediction error in real dollar terms.This leaves room for improvement through more advanced modelling techniques.</p>
+<li><p>The <b>RMSE of &#36;1016.7</b> equivalent to <b>25.5% of the mean diamond price</b>, indicates that while the model captures the overall pricing patterns effectively, there is still meaningful prediction error in real dollar terms.This leaves room for improvement through more advanced modelling techniques.</p>
 </li>
-<li><p>The <b>MAE</b> tells us that predictions deviate from the actual diamond price by <b>\$480.93</b>.</p>
+<li><p>The <b>MAE</b> tells us that predictions deviate from the actual diamond price by <b>&#36;480.93</b>.</p>
 </li>
-<li><p>The <b>MedAE</b> tells us that half of the <b>predictions are within \$185.95 of the true diamond price</b>.<font color =#4169E1> The gap between between MAE and MedAE tells us the model performs well for the majority of diamonds, while a smaller number of expensive diamonds produce larger prediction errors</font>.</p>
+<li><p>The <b>MedAE</b> tells us that half of the <b>predictions are within &#36;185.95 of the true diamond price</b>.<font color =#4169E1> The gap between between MAE and MedAE tells us the model performs well for the majority of diamonds, while a smaller number of expensive diamonds produce larger prediction errors</font>.</p>
 </li>
 <li><p>This model achieves an <b>R² of 0.98 across training and validation sets</b> : it explains approximately 98% of the variability in log-transformed diamond prices. The consistency of R² across all data splits supports the model's ability to generalise well to unseen data.</p>
 </li>
@@ -23808,7 +23808,7 @@ Optimal l1_ratio: 0.05
 </li>
 <li><p>Tree-based ensemble methods achieved the strongest predictive performance overall. Random Forest displayed the largest train-validation gap, suggesting a higher degree of overfitting, whereas Gradient Boosting and XGBoost achieved a better balance between model complexity and generalisation.</p>
 </li>
-<li><p>Among all models, <b>XGBoost delivered the lowest validation RMSE (\$552.97) and MAE (\$278.50), making it the best-performing model despite a moderate increase in the train-validation gap</b>.</p>
+<li><p>Among all models, <b>XGBoost delivered the lowest validation RMSE (&#36;552.97) and MAE (&#36;278.50), making it the best-performing model despite a moderate increase in the train-validation gap</b>.</p>
 </li>
 </ul>
 
@@ -24723,9 +24723,9 @@ Selected Features: [&#39;width&#39;, &#39;carat&#39;, &#39;height&#39;, &#39;len
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><font size=4, color=#4169E1>💎<b>OBSERVATIONS</b></font></p>
 <ul>
-<li><p><b>Reducing the feature set from eight to five predictors substantially worsens validation performance</b>. RMSE increases from \$552.97 for the original XGBoost model to \$998.52 for the top-five-feature model.</p>
+<li><p><b>Reducing the feature set from eight to five predictors substantially worsens validation performance</b>. RMSE increases from &#36;552.97 for the original XGBoost model to &#36;998.52 for the top-five-feature model.</p>
 </li>
-<li><p>The reduced model also has a higher validation MedAE (\$186.93 versus \$102.08), indicating that its typical absolute prediction error increases.</p>
+<li><p>The reduced model also has a higher validation MedAE (&#36;186.93 versus &#36;102.08), indicating that its typical absolute prediction error increases.</p>
 </li>
 <li><p>The five highest ranked features alone do not capture enough predictive information to maintain or improve the orginal model's performance. <font color=#004F98>The lower ranked features collectively provide useful additional information</font>.</p>
 </li>
@@ -25159,7 +25159,7 @@ Selected Features: [&#39;width&#39;, &#39;carat&#39;, &#39;height&#39;, &#39;len
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><font size=4, color=#4169E1>💎<b>OBSERVATIONS</b></font></p>
 <ul>
-<li>Removing <code>width</code>, <code>length</code> and <code>height</code> reduces validation RMSE from \$552.97 to \$544.79, a modest improvement of approximately 1.5% over the original XGBoost model.</li>
+<li>Removing <code>width</code>, <code>length</code> and <code>height</code> reduces validation RMSE from &#36;552.97 to &#36;544.79, a modest improvement of approximately 1.5% over the original XGBoost model.</li>
 </ul>
 
 </div>
@@ -25606,9 +25606,9 @@ Selected Features: [&#39;width&#39;, &#39;carat&#39;, &#39;height&#39;, &#39;len
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><font size=4, color=#4169E1>💎<b>OBSERVATIONS</b></font></p>
 <ul>
-<li><p>Removing <code>cut</code> and <code>table</code> increases validation RMSE from \$552.97 to \$563.53, indicating a modest decline in predictive performance.</p>
+<li><p>Removing <code>cut</code> and <code>table</code> increases validation RMSE from &#36;552.97 to &#36;563.53, indicating a modest decline in predictive performance.</p>
 </li>
-<li><p>Validation MAE increases from \$278.50 to \$288.93, while MedAE rises from \$102.08 to \$108.42.</p>
+<li><p>Validation MAE increases from &#36;278.50 to &#36;288.93, while MedAE rises from &#36;102.08 to &#36;108.42.</p>
 </li>
 <li><p>Although SHAP suggests that <code>cut</code> and <code>table</code> have relatively small contributions, removing them reduces the model's predictive performance. <b>Their combined contribution therefore appears useful, even if it is smaller than that of the leading features</b>.</p>
 </li>
@@ -26146,11 +26146,11 @@ Best parameters: {&#39;n_estimators&#39;: 756, &#39;max_depth&#39;: 7, &#39;lear
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><font size=4, color=#4169E1>💎<b>OBSERVATIONS</b></font></p>
 <ul>
-<li><p>Bayesian optimization identifies the Optimized XGBoost Regressor as the best-performing model in the validation comparison, achieving an RMSE of \$532.46 and an MAE of \$264.45.</p>
+<li><p>Bayesian optimization identifies the Optimized XGBoost Regressor as the best-performing model in the validation comparison, achieving an RMSE of &#36;532.46 and an MAE of &#36;264.45.</p>
 </li>
-<li><p>Its validation MedAE is \$94.45, meaning that &lt;font color=#00356B&gt;half of the absolute prediction errors are no greater than approximately \$94.45&lt;/font&gt;.</p>
+<li><p>Its validation MedAE is &#36;94.45, meaning that <font color=#00356B>half of the absolute prediction errors are no greater than approximately &#36;94.45</font>.</p>
 </li>
-<li><p>Compared with the original XGBoost model, <b>validation RMSE</b> decreases from \$552.97 to \$532.46, <b>an improvement of approximately 3.7%</b>.</p>
+<li><p>Compared with the original XGBoost model, <b>validation RMSE</b> decreases from &#36;552.97 to &#36;532.46, <b>an improvement of approximately 3.7%</b>.</p>
 </li>
 <li><p><font color=#000080>The optimized model outperforms the other evaluated models on validation RMSE, including the reduced-feature variants</font>. The full feature set is therefore retained for the final evaluation.</p>
 </li>
@@ -26424,7 +26424,7 @@ class="
 </li>
 <li><p>The spread of residuals increase as predicted price increases, indicating heteroscedasticity. In practical terms, the absolute size of prediction errors tends to become larger for high-priced diamonds.</p>
 </li>
-<li><p>This behaviour helps explain why the model's <b>val RMSE of \$532.46</b> is substantially larger than its <b>MedAE of \$94.45</b>. The median absolute error represents the typical test observation, while larger errors from a smaller number of observations have a stronger influence on RMSE.</p>
+<li><p>This behaviour helps explain why the model's <b>val RMSE of &#36;532.46</b> is substantially larger than its <b>MedAE of &#36;94.45</b>. The median absolute error represents the typical test observation, while larger errors from a smaller number of observations have a stronger influence on RMSE.</p>
 </li>
 <li><p>The residual analysis therefore shows that <font color=#2C3863><b>the Optimized XGBoost model performs well for the majority of observations, while prediction uncertainty in absolute dollar terms becomes greater for higher-priced diamonds</b></font>.</p>
 </li>
@@ -27102,7 +27102,7 @@ Features used: [&#39;cut&#39;, &#39;color&#39;, &#39;clarity&#39;, &#39;carat&#3
 </li>
 <li><p><b>Non-linear models performed better than linear models</b>. The interaction model improved on baseline linear regression, while tree-based models achieved further reductions in prediction error. This suggests that the relationships between diamond characteristics and price are not adequately captured by a simple linear model.</p>
 </li>
-<li><p><b>Hyperparameter optimization improved XGBoost performance</b>. Optuna reduced validation RMSE from $552.97 for the original XGBoost model to \$532.46 for the Optimized XGBoost Regressor, an improvement of approximately 3.7%.</p>
+<li><p><b>Hyperparameter optimization improved XGBoost performance</b>. Optuna reduced validation RMSE from &#36;552.97 for the original XGBoost model to &#36;532.46 for the Optimized XGBoost Regressor, an improvement of approximately 3.7%.</p>
 </li>
 <li><p><b>Feature reduction did not outperform the optimized full model</b>. Using only the five highest-ranked features substantially worsened performance. Removing the physical dimensions or the two lowest-ranked SHAP features also produced higher validation RMSE than the optimized full-feature model. All eight predictors were therefore retained for the final model.</p>
 </li>
@@ -27142,9 +27142,9 @@ Features used: [&#39;cut&#39;, &#39;color&#39;, &#39;clarity&#39;, &#39;carat&#3
 <tbody>
 <tr>
 <td>RMSE</td>
-<td style="text-align:right">\$413.29</td>
-<td style="text-align:right">\$532.46</td>
-<td style="text-align:right">\$522.62</td>
+<td style="text-align:right">&#36;413.29</td>
+<td style="text-align:right">&#36;532.46</td>
+<td style="text-align:right">&#36;522.62</td>
 </tr>
 <tr>
 <td>RMSE (% of mean price)</td>
@@ -27154,15 +27154,15 @@ Features used: [&#39;cut&#39;, &#39;color&#39;, &#39;clarity&#39;, &#39;carat&#3
 </tr>
 <tr>
 <td>MAE</td>
-<td style="text-align:right">\$212.60</td>
-<td style="text-align:right">\$264.45</td>
-<td style="text-align:right">\$262.04</td>
+<td style="text-align:right">&#36;212.60</td>
+<td style="text-align:right">&#36;264.45</td>
+<td style="text-align:right">&#36;262.04</td>
 </tr>
 <tr>
 <td>MedAE</td>
-<td style="text-align:right">\$80.45</td>
-<td style="text-align:right">\$94.45</td>
-<td style="text-align:right">\$95.31</td>
+<td style="text-align:right">&#36;80.45</td>
+<td style="text-align:right">&#36;94.45</td>
+<td style="text-align:right">&#36;95.31</td>
 </tr>
 <tr>
 <td>R² (log scale)</td>
@@ -27183,7 +27183,7 @@ Features used: [&#39;cut&#39;, &#39;color&#39;, &#39;clarity&#39;, &#39;carat&#3
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The test RMSE of \$522.62 and MAE of \$262.04 indicate the model's average prediction-error magnitude in dollar terms, while the MedAE of \$95.31 shows that half of the absolute test errors are no greater than approximately \$95.31. The log-scale R² of 0.992 indicates a strong fit in the transformed target space.</p>
+<p>The test RMSE of &#36;522.62 and MAE of &#36;262.04 indicate the model's average prediction-error magnitude in dollar terms, while the MedAE of &#36;95.31 shows that half of the absolute test errors are no greater than approximately &#36;95.31. The log-scale R² of 0.992 indicates a strong fit in the transformed target space.</p>
 <p><font color=#002D62>Test performance is close to validation performance, suggesting that the model generalizes well to the held-out data</font>. However, this result applies to the particular data split and should not be interpreted as a guarantee of performance on every new dataset.</p>
 
 </div>
