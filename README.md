@@ -1,6 +1,4 @@
-# Predicting Diamond Prices: A Comprehensive Regression Analysis
-<img width="479" height="329" alt="image" src="https://github.com/user-attachments/assets/fc710385-24f6-4095-9b47-11ca6963952e" />
-
+# 💎Predicting Diamond Prices: A Comprehensive Regression Analysis
 
 ## Project Overview
 
