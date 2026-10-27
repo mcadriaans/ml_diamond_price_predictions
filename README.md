@@ -96,13 +96,18 @@ The <b>Optimized XGBoost Regressor</b> using all eight predictors, was selected 
 * RMSE gives greater weight to larger errors, so it is sensitive to occassional large misses.
 * The mean absolute test error is about $262 on the held-out test observations.
 * Half of the absolute test errors are no greater than approximately $95.31
-* the model explains a high proportion of variation in the transformed target on this split.
+* The model explains a high proportion of variation in the transformed target on this split.
 
 Test performance is close to validation performance, which is encouraging for this data split. It is not a guarantee that the same performance will hold on other samples or real-world diamond listings.
 
 ## Key Findings
 
-To explore the project, clone this repository and open the Jupyter Notebook. It is recommended to use a virtual environment.
+1. <font color= darkblue><b>Size-related features are strong predictors</b></font>. Carat weight and physical dimensions rank highly in the EDA and XGBoost interpretation.
+2. <font color= darkblue><b>Multicollinearity complicates linear model interpretation</b></font>. Correlated size-related predictors make it difficult to isolate their individual coefficient effects.
+3. <font color= darkblue><b>Non-linear models perform better in this project</b></font>. The interaction model improves on baseline linear regression and tree-based models further reduce prediction error.
+4. <font color= darkblue><b>Tuning improves XGBoost's validation performance</b></font>. Optuna reduces validation RMSE by approximately 3.7% compared to the original XGBoost model.
+5. <font color= darkblue><b>Feature reduction has trade-offs</b></font>. The tested smaller feature sets do not outperform the tuned model suing all eight features.
+6. <font color= darkblue><b>Prediction errors are uneven across the price range</b></font>. Residual analysis indicates larger absolute errors for more expensive diamonds.
 
 ```bash
 # Clone the repository
