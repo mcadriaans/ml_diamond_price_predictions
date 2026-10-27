@@ -102,12 +102,27 @@ Test performance is close to validation performance, which is encouraging for th
 
 ## Key Findings
 
-1. <font color= darkblue><b>Size-related features are strong predictors</b></font>. Carat weight and physical dimensions rank highly in the EDA and XGBoost interpretation.
-2. <font color= darkblue><b>Multicollinearity complicates linear model interpretation</b></font>. Correlated size-related predictors make it difficult to isolate their individual coefficient effects.
-3. <font color= darkblue><b>Non-linear models perform better in this project</b></font>. The interaction model improves on baseline linear regression and tree-based models further reduce prediction error.
-4. <font color= darkblue><b>Tuning improves XGBoost's validation performance</b></font>. Optuna reduces validation RMSE by approximately 3.7% compared to the original XGBoost model.
-5. <font color= darkblue><b>Feature reduction has trade-offs</b></font>. The tested smaller feature sets do not outperform the tuned model suing all eight features.
-6. <font color= darkblue><b>Prediction errors are uneven across the price range</b></font>. Residual analysis indicates larger absolute errors for more expensive diamonds.
+1. <font color= #0000FF><b>Size-related features are strong predictors</b></font>. Carat weight and physical dimensions rank highly in the EDA and XGBoost interpretation.
+2. <font color= #0000FF><b>Multicollinearity complicates linear model interpretation</b></font>. Correlated size-related predictors make it difficult to isolate their individual coefficient effects.
+3. <font color= #0000FF><b>Non-linear models perform better in this project</b></font>. The interaction model improves on baseline linear regression and tree-based models further reduce prediction error.
+4. <font color= #0000FF><b>Tuning improves XGBoost's validation performance</b></font>. Optuna reduces validation RMSE by approximately 3.7% compared to the original XGBoost model.
+5. <font color= #0000FF><b>Feature reduction has trade-offs</b></font>. The tested smaller feature sets do not outperform the tuned model suing all eight features.
+6. <font color= #0000FF><b>Prediction errors are uneven across the price range</b></font>. Residual analysis indicates larger absolute errors for more expensive diamonds.
+
+## Limiations and Next Steps
+* Model comparisons use a single train-validation-test split. Cross-validation could help assess how stable the results are across different samples.
+* Errors tend to increase in dollar terms for more expensive diamonds.
+* Correlated predictors make individual feature contributions difficult to isolate. SHAP and built-in importance should be interpreted as explanations of model behaviour, not causal evidence.
+* Alternative encodings for `cut`, `color` and `clarity` could be compared.
+* Additional justified features such as `length-to-width` ratio, could be investigated.
+* Preprocessing and prediction could be packaged into a reusable pipeline for consistent future predictions.
+
+## Repository Contents
+* `Diamond_Price_Prediction.ipynb` - the notebook containing data cleaning, EDA, preprocessing, model comparison, feature interpretation, tuning and final evaluation.
+* `requirements.txt` - Python package dependencies, if included in the repository.
+
+## Getting started
+Clone the repository and open the notebook in a Python environment with Jupyter installed:
 
 ```bash
 # Clone the repository
@@ -116,8 +131,7 @@ git clone https://github.com/mcadriaans/ml_diamond-price-prediction.git
 # Navigate into the project directory
 cd ml_diamond-price-prediction
 
-# Install required Python packages
-pip install -r requirements.txt
-
 # Launch the notebook interface
+pip install requirements.txt
 jupyter notebook
+```
