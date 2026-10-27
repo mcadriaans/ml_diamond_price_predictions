@@ -4,78 +4,103 @@
 
 ## Project Overview
 
-This project aims to develop a machine learning model that predicts diamond prices with both high accuracy and clear interpretability. Using a rich Kaggle dataset of 53,940 entries, the analysis explores how quality factors like cut, color, and clarity interact with size-related features such as carat, depth, and dimensions. The workflow includes thorough data cleaning, deep exploratory analysis, smart feature engineering, a comparison of regression models, Bayesian hyperparameter tuning, and transparent model interpretation using SHAP. The end goal is a reliable, explainable model that reveals what truly drives diamond pricing.
+This project aims to develop a machine learning model that predicts diamond prices with both high accuracy and clear interpretability. Using a rich dataset of 53,940 entries, the analysis cleans and explores the data, examining relationships between the target variable `price` and the diamond attribute predictors, and comparing linear and tree-based models.
 
-## Key Features
+We do not only focus on predictive performance but also aim to understand model behaviour. We observe how correlated size-related features affect linear model coeffcients, whether feature reduction helps. and how prediction errors behave on both log-transformed and original price scales.
 
-*   **End-to-End ML Pipeline:** Covers data ingestion, cleaning, EDA, preprocessing, model building, tuning, and interpretation.
-*   **Advanced Feature Engineering:** Implemented log transformations for skewed numericals, target encoding for categoricals, and VIF-driven composite features (e.g., `volume`) to mitigate multicollinearity.
-*   **Diverse Model Exploration:** Compared performance across Linear Regression (baseline, VIF-adjusted, Polynomial), Lasso, Ridge, ElasticNet, Random Forest, Gradient Boosting, and XGBoost.
-*   **Hyperparameter Tuning:** Utilized Optuna for Bayesian Optimization to fine-tune the best-performing model (XGBoost) for optimal real-world RMSE.
-*   **In-depth Model Interpretation:** Performed detailed residual analysis on both log-transformed and original scales, and leveraged SHAP values for nuanced feature importance, especially in clarifying multicollinear impacts.
+The final model is an <b>Optuna-tuned XGBoost regressor</b>, selected using validation performance and evaluated once on a held-out test set.
+
+## Project Highlights
+
+*   Cleaned the dataset by removing duplicate observations and records with physically invalid zero dimensions.
+*   Explored numerical distributions, categorical relationships, outliers, and associations among features.
+*   Split the data into <b>64% training</b>, <b>16% validation</b>, and <b>20% test</b> sets.
+*   Applied <b>log1p</b> transformations to skewed numerical features and the `price` target.
+*   Target encoded the ordinal categorical features `cut`, `color` and `clarity`, fitting the encoder on the training data.
+*   Standardized predictor features for modelling.
+*   Compared baseline and regularized linear regression , polynomial interaction features, Random Forest, Gradient Boosting and XGBoost Regressor.
+*   Investigated multicollinearity with variance inflation factors (VIF) and examined built-in XGBoost feature importance and SHAP explanations.
+*   Used Optuna'S Bayesian optimization approach to tune XGBoost hyperparameters against validation RMSE on the original price scale.
+*   Evaluated the selected model using RMSE, MAE, median absoulte error (MedAE), log-scale R² and residual analysis.
+
 
 ## Dataset
 
-The project utilizes the [Kaggle Diamonds Dataset](https://www.kaggle.com/datasets/nancyalaswad90/diamonds-prices).
-It contains 53,940 observations and 10 features, with `price` as the target variable.
-Key features include: `carat`, `cut`, `color`, `clarity`, `depth`, `table`, `length`, `width`, `height`.
+Data is comprised of  53,940 observations and 10 features, with `price` as the target variable.
+Key features include: `carat`, `cut`, `color`, `clarity`, `depth`, `table`, `x`, `y`, `z`. 
+x, y, z we renamed as `length`, `width`, `height` for improved readability.
+
+### Data Cleaning 
+* Dropped the `Unnamed: 0` row-identifier column before checking for duplicates.
+* Removed <b>148 exact duplicate rows</b>, checking the diamond features rather than the unique row identifier.
+* Removed <b>3 records with physically invalid zero dimensions</b>.
+* Set the categorical quality features in their intended ordinal order.
 
 ## Methodology
+### 1. Exploratory Data Analysis 
+The EDA examines the distributions of numerical features, including skewness and kurtosis; price relationships with categorical and numerical features; outliers; and correlations among predictors.
+ANOVA and Cramér's V are used to investigate categorical feature relationships.
 
-### 1. Data Cleaning & Exploratory Data Analysis (EDA)
+The analysis shows that diamond `price` is strongly related to `carat` weight and other size-related measurements. Its also highlights wha average prieces across quality grades need careful interpretation. Diamonds in different grades can have different carat weight distributions.
 
-*   Identified and removed 20 rows with invalid zero dimensions (`x, y, z`) and dropped the `Unnamed: 0` index column.
-*   Renamed `x, y, z` to `length, width, height` for clarity.
-*   Converted `cut, color, clarity` to ordered categorical types.
-*   Conducted univariate analysis (skewness, kurtosis) revealing highly skewed distributions for most features, necessitating transformations.
-*   Analyzed bivariate relationships (price vs. categorical, price vs. carat) revealing complex interactions and counter-intuitive trends (e.g., higher quality cuts/colors sometimes correlate with lower *absolute* prices due to smaller carat sizes).
-*   Used ANOVA and Cramér's V to assess categorical feature significance and association strength, confirming all three (`cut, color, clarity`) significantly impact price with negligible-to-weak inter-associations.
-*   Outlier analysis revealed significant outlier rates for `price` (6.55%), `depth` (4.72%), and `carat` (3.49%).
+### 2. Preprocessing and data split
+The dataset is split into training(64%), validation(16%) and test(20%) subsets. The validation set is used to compare models and tune hyperparameters. The test set is held back for final evaluation.
 
-### 2. Feature Engineering & Preprocessing
+Preprocessing includes:
+* Applying `np.lop1p`to skewed numerical features and to `price`.
+* Target encoding categorical features and fitting the encoder to the training data.
+* Applying `StandardScaler` to predictor features.
 
-*   **Log Transformations:** Applied `np.log1p` to highly right-skewed numerical features and the `price` target to normalize distributions and stabilize variance.
-*   **Target Encoding:** Employed for categorical features (`cut, color, clarity`) to capture non-linear relationships with the target variable (on a log scale) and reduce dimensionality.
-*   **Standardization:** Applied `StandardScaler` to all numerical features to ensure equal contribution to distance-based models.
-*   **VIF-driven Feature Creation:** Identified extreme multicollinearity among `length, width, height` (VIF > 190). Engineered a composite `volume` feature (`height * width * length`) to consolidate their impact, successfully reducing VIF for all remaining features to acceptable levels. `depth` was removed due to its negligible predictive value.
+Models are trained to predict `log1p(price)`. For metrics in dollars, predictions are transformed back to the original price scale.
 
-### 3. Model Building & Evaluation
+### 3. Model Comparision
+The notebook compares several approaches:
+* Baseline Linear Regression
+* VIF-informed linear model investigation
+* Lasso, Ridge and Elastic Net Regression
+* Linear Regression with pairwise polynomial interaction features
+* Random Forest Regressor
+* Gradient Boosting Regressor
+* XGBoost Regressor
 
-*   **Linear Models:** Evaluated Baseline Linear Regression, VIF-selected Linear Regression, Lasso, Ridge, ElasticNet, and Polynomial Regression (with interactions). These models struggled with interpretability (e.g., counter-intuitive `carat` coefficients) and capturing complex non-linear patterns.
-*   **Ensemble Models:** Built Random Forest, Gradient Boosting, and XGBoost models. Random Forest initially showed severe overfitting. Gradient Boosting and XGBoost demonstrated significantly superior performance, highlighting their ability to capture non-linearities and handle feature interactions.
+The linear model experiments reveal strong correlations among size-related features can make individual(independent) coefficients difficult to interpret. Adding interaction terms improves on the baseline linear model, while tree-based models better capture non-linear relationships and feature interactions.
 
-### 4. Model Optimization
+### 4. Feature importance  and feature reduction experiments
+The notebook examines XGBoost's built-in feature importance and SHAP values. These are used to explore how the model relies on the predictors and how feature values contribute to predictions.
 
-*   **Bayesian Optimization with Optuna:** Tuned XGBoost's hyperparameters (`n_estimators`, `max_depth`, `learning_rate`, `subsample`, `colsample_bytree`, `min_child_weight`, `reg_alpha`, `reg_lambda`), optimizing for Root Mean Squared Error (RMSE) on the *original dollar scale*. This significantly improved predictive accuracy over the non-optimized version.
+Several reduced feature experiments test whether a smaller model can retain performance:
+* Using only the five highest ranked builtin features substantially worsens validation performance.
+* Removing `length`, `width` and `height` produces a small improvement over the original XGBoost model, but does not outperform the tuned model.
+* Removing `cut` and `table` degrades validation performance.
 
-### 5. Model Interpretation
+These experiments support retaining all eight predictors in the final model. Feature importance and SHAP describe model behaviour; they do not establish that a feature has an independent causal effect.
 
-*   **Residual Analysis:** Conducted detailed analysis on both log-transformed (model's training domain, exhibiting homoscedastic residuals) and original dollar scales. This revealed heteroscedasticity on the original scale (prediction errors grow with price), explaining the difference between RMSE and MedAE, and confirmed the model's unbiased nature.
-*   **SHAP Values:** Leveraged SHAP (SHapley Additive exPlanations) to gain granular, local and global feature importance. This was critical in:
-    *   Correctly attributing `carat` as the **dominant price driver**, overcoming multicollinearity's masking effect seen in simpler models.
-    *   Explaining the nuances of `color` and `clarity` impacts, showing how lower quality grades in these attributes can correlate with higher prices due to their strong interaction with `carat` size.
-    *   Confirming the negligible individual contribution of `length`, `width`, and `height` once `carat` is accounted for.
+### 5. XGBoost optimization and residual analysis
+Optuna is used to tune XGBoost hyperparameters, with validation RMSE on the original dollar scale as the optimization objection objective. The tuned model improves validation RMSE from <b>$552.97</b> for the original XGBoost model to <b>$532.46</b>, <b>an improvement of approximately 3.7%</b>.
 
-## Key Findings & Insights
+Residuals are examined on both the log-transformed and original price scales. On the original scale, absolute errors tend to increase for more expensive diamonds, meaning predictions are less precise in dollar terms at the upper end of the price range.
 
-*   **Carat Dominance:** `carat` weight is the most influential factor, fundamentally driving diamond value, a fact clarified by robust SHAP analysis that cuts through multicollinearity.
-*   **Complex Interactions:** Non-linear relationships and intricate feature interactions are paramount in diamond pricing, making tree-based ensemble models (especially XGBoost) far superior to linear approaches.
-*   **Quality vs. Size Trade-offs:** Counter-intuitive trends for quality attributes (e.g., D-color diamonds sometimes having lower average absolute prices than J-color) are explained by their inverse correlation with `carat` weight.
-*   **Robustness of XGBoost:** The optimized XGBoost model is highly accurate, unbiased, and provides excellent practical precision for a wide range of diamond prices, delivering valuable insights for fair pricing.
+## Final Model Performance
 
-## Model Performance
+The <b>Optimized XGBoost Regressor</b> using all eight predictors, was selected based on validation performance and evaluated on the held-out test set.
 
-The **Optimized XGBoost Regressor** achieved the best overall performance:
+| Metric                             | Train| Validation | Test| 
+| :---------------------------------- | :---------- | :--------- | :------------- | 
+| <b>RMSE</b>  | $413.29  | $532.46 | $522.62 | 
+|<b>RMSE (% of mean price)</b>| 10.53% | 13.35% | 13.39% |
+|<b>MAE</b>|	$212.60 | $264.45 | $262.04 |
+|<b>MedAE</b>| $80.45 | $94.45 |	$95.31 |
+|<b>R² (log-transformed target)</b>|	0.995 | 0.993 | 0.992 |
 
-| Model                               | RMSE(train) | RMSE(test) | RMSE (gap_pct) | RMSE(test) / Mean Price (pct) | MedAE(test) | R²(train)(log) | R²(test)(log) |
-| :---------------------------------- | :---------- | :--------- | :------------- | :---------------------------- | :---------- | :------------- | :------------ |
-| **XGBoost Regressor (Optimized)**   | **428.95**  | **526.71** | **22.79**      | **13.37**                     | **93.00**   | **1.00**       | **0.99**      |
+### Interpreting the test results
+* RMSE gives greater weight to larger errors, so it is sensitive to occassional large misses.
+* The mean absolute test error is about $262 on the held-out test observations.
+* Half of the absolute test errors are no greater than approximately $95.31
+* the model explains a high proportion of variation in the transformed target on this split.
 
-*   **Lowest Test RMSE:** $526.71 (approx. 13.37% of the mean price).
-*   **Lowest MedAE:** $93.00, meaning half of predictions are within $93 of actual price.
-*   **High R² (log-transformed):** 1.00 (train) and 0.99 (test), indicating excellent variance explanation.
+Test performance is close to validation performance, which is encouraging for this data split. It is not a guarantee that the same performance will hold on other samples or real-world diamond listings.
 
-## Getting Started
+## Key Findings
 
 To explore the project, clone this repository and open the Jupyter Notebook. It is recommended to use a virtual environment.
 
