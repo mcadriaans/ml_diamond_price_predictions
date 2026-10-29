@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Diamond_Price_Prediction1_0_15018900_1793127284</title><script src="file:///usr/share/javascript/requirejs/require.min.js"></script>
+<title>Diamond_Price_Prediction_1_0_61392000_1793282160</title><script src="file:///usr/share/javascript/requirejs/require.min.js"></script>
 
 
 
@@ -16082,7 +16082,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="5.1.4-Multiple-factor-ANOVA:-Categorical-Feature-Influence-on-%60price%60"><b>5.1.4 Multiple-factor ANOVA: Categorical Feature Influence on `price`</b><a class="anchor-link" href="#5.1.4-Multiple-factor-ANOVA:-Categorical-Feature-Influence-on-%60price%60">&#182;</a></h3>
+<h3 id="5.1.4-Multiple-factor-ANOVA:-Categorical-Feature-Influence-on-price"><b>5.1.4 Multiple-factor ANOVA: Categorical Feature Influence on price</b><a class="anchor-link" href="#5.1.4-Multiple-factor-ANOVA:-Categorical-Feature-Influence-on-price">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -16859,7 +16859,7 @@ Price distributions are heavily right-skewed across all cut grades, with substan
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4><font color=#008B8B>6.2.1.2 Distribution of Price by Color</font></h4>
+<h4><font color=#008B8B>5.2.1.2 Distribution of Price by Color</font></h4>
 
 </div>
 </div>
@@ -17710,7 +17710,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><font size=4, color=#4169E1>💎<b>OBSERVATIONS</b></p>
+<p><font size=4, color=#4169E1>💎<b>OBSERVATIONS</b></font></p>
 <ul>
 <li>There is a clear, strong positive relationship between carat weight and  average price. As <code>carat</code> increases, <code>average diamond price</code> rises sharply.</li>
 <li>This provides an important explanation for the overlapping price distributions we observed across <code>cut</code>, <code>color</code> and <code>clarity</code>; diamonds with higher quality grades can have lower absolute prices when they are smaller, while larger diamonds with lower quality grades can command higher prices.</li>
@@ -18648,7 +18648,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2><font color=#0000CD>6.2 Log Transformations to Skewed Features and Target&lt;/b&gt;</h2>
+<h2><font color=#0000CD>6.2 Log Transformations to Skewed Features and Target</font></h2>
 
 </div>
 </div>
@@ -18661,7 +18661,8 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>The EDA identified strong right-skewness in several numerical features, particularly <code>carat</code> and <code>price</code>. To reduce the effect of this skewness, a <b>log1p transformation</b> is applied to the numerical features and the target variable, <code>price</code>.</p>
-$$log1p(x) = log(1 + x) $$<p><font color=darkslategray>log1p is used to reduce the strong right-skewness in the numerical features and `price`, while also handling values close to zero mpre effectively than the standard log transformation logp</font>.</p>
+<p>[ \operatorname{log1p}(x) = \log(1 + x) ]</p>
+<p><font color=darkslategray>log1p is used to reduce the strong right-skewness in the numerical features and `price`, while also handling values close to zero mpre effectively than the standard log transformation logp</font>.</p>
 <p>The same transformation is applied consistently to the training, validation and test sets, while the transformation itself is defined without fitting parameters from the validation and test sets.</p>
 
 </div>
@@ -18790,7 +18791,7 @@ class="
 </li>
 <li><p>The transformed distribution is <font color=blue>more concentrated and less dominated by extreme high-price values</font> which is also reflected in the violinplot.</p>
 </li>
-<li><p>The Q-Q plot still shows noticeable deviation from the reference line, indicating that <font color=blue>the log1p transformation does not make `price` normally distributed</font>.</p>
+<li><p>The Q-Q plot still shows noticeable deviation from the reference line, indicating that <font color=blue>the log1p transformation does not make price normally distributed</font>.</p>
 </li>
 <li><p>The transformed histogram retains some non-uniform structure, so the transformation should be viewed as reducing skewness rather than achieving normality.</p>
 </li>
@@ -18806,7 +18807,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2><font color=#0000CD>6.3 Target Encoding of Categorical Features&lt;/b&gt;</h2>
+<h2><font color=#0000CD>6.3 Target Encoding of Categorical Features</font></h2>
 
 </div>
 </div>
@@ -19042,11 +19043,11 @@ max        4.000000      6.000000      7.000000
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><font color=indigo>Model performance is evaluated using several complementary metrics:</font></p>
 <ul>
-<li><font color=indigo>**RMSE** (Root Mean Squared Error): Measures prediction error in the original price units while giving greater weight to larger errors.</font></li>
-<li><font color=indigo>**MAE** (Mean Absolute Error): Measures the average absolute difference between predicted and actual prices in the original price units.</font></li>
-<li><font color=indigo>**MedAE** (Median Absolute Error): Measures the median absolute prediction error (typical) and is less influenced by extreme errors than RMSE:</font></li>
-<li><font color=indigo>**R²** (Coefficient of Determination): Measures the proportion of variance explained by the model. In this project R² is calculated on the log-transformed target because the models are trained to predict log1p(price). RMSE, MAE, MedAE are calculated after converting predictions back to the original price scale so that their values remain directly interpretable in price units.</font></li>
-<li><font color=indigo>**RMSE as a Percentage of Mean Price**: Expresses RMSE relative to the mean price, providing additional context for the magnitude of the prediction error.</font></li>
+<li><font color=indigo><b>RMSE (Root Mean Squared Error)</b>: Measures prediction error in the original price units while giving greater weight to larger errors.</font></li>
+<li><font color=indigo><b>MAE (Mean Absolute Error)</b>: Measures the average absolute difference between predicted and actual prices in the original price units.</font></li>
+<li><font color=indigo><b>MedAE (Median Absolute Error)</b>: Measures the median absolute prediction error (typical) and is less influenced by extreme errors than RMSE:</font></li>
+<li><font color=indigo><b>R² (Coefficient of Determination)</b>: Measures the proportion of variance explained by the model. In this project R² is calculated on the log-transformed target because the models are trained to predict log1p(price). RMSE, MAE, MedAE are calculated after converting predictions back to the original price scale so that their values remain directly interpretable in price units.</font></li>
+<li><font color=indigo><b>RMSE as a Percentage of Mean Price</b>: Expresses RMSE relative to the mean price, providing additional context for the magnitude of the prediction error.</font></li>
 </ul>
 
 </div>
@@ -19143,17 +19144,6 @@ max        4.000000      6.000000      7.000000
 </div>
 </div>
 
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="7.1.1-Why-Begin-with-Linear-Regression?"><b>7.1.1 Why Begin with Linear Regression?</b><a class="anchor-link" href="#7.1.1-Why-Begin-with-Linear-Regression?">&#182;</a></h3>
-</div>
-</div>
-</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -19790,18 +19780,6 @@ max        4.000000      6.000000      7.000000
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><font color=red> Why should I be worried about multicollinearity?</font></p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>In the baseline model, the coefficient for <code>carat</code> is close to zero (-0.043709). This is unexpected. The EDA showed that <code>carat</code> has one of the strongest relationships with <code>price</code>.</p>
 <p>A likely explanation is <b>multicollinearity</b>: when two or more predictors carry almost the same information, the model cannot separate their individual effects. <code>carat</code>, <code>length</code>, <code>width</code> and <code>height</code> all describe the size of a diamond, so they are good candidates.</p>
 <p>The <b>Variance Inflation Factor (VIF)</b> is used to test this. VIF measures how much of a predictor can be explained by the other predictors. The higher the value, the more redundant the predictor is.</p>
@@ -19811,18 +19789,6 @@ max        4.000000      6.000000      7.000000
 <li><b>VIF > 10</b>: high, the predictor overlaps strongly with others</li>
 </ul>
 <p>VIF is computed on the <b>training features only</b>. It is mainly relevant for linear models. Tree-based models handle correlated features without the same problems.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><mark> VIF is computed ONLY on the training feature matrix</mark></p>
 
 </div>
 </div>
@@ -20204,7 +20170,7 @@ max        4.000000      6.000000      7.000000
 
 <span class="c1"># Fit the LassoCV model on the training data</span>
 <span class="n">lasso_cv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_lr</span><span class="p">,</span> <span class="n">y_train_lr</span><span class="p">)</span>
-<span class="c1"># Extract the best alpha fpund during cross-validation</span>
+<span class="c1"># Extract the best alpha found during cross-validation</span>
 <span class="sd">'''</span>
 <span class="sd">This is the regularization strength that yields the lowest validation</span>
 <span class="sd">error (or loss) and the best model performance.</span>
@@ -20251,7 +20217,7 @@ max        4.000000      6.000000      7.000000
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><font size=4, color=#4169E1>💎<b>OBSERVATIONS</b></font></p>
 <ul>
-<li><p><b>`LassoCV`selected a low alpha value of approx. 0.000091</b> which tells us only small amount of L1 regularization was needed to minimize cross-validation error.</p>
+<li><p><b>LassoCV selected a low alpha value of approx. 0.000091</b> which tells us only small amount of L1 regularization was needed to minimize cross-validation error.</p>
 </li>
 <li><p>The low alpha suggests that <b>strong coefficient shrinkage is not neccessary</b> for this model. Although Lasso can reduce less useful/redundant coefficients to zero, the selected regularization strength alone does not establish that any features were removed or that multicollinearity was resolved.</p>
 </li>
@@ -20826,7 +20792,7 @@ max        4.000000      6.000000      7.000000
 <ul>
 <li><p>Lasso does not remove any of the predictors.</p>
 </li>
-<li><p><b>`length` and `height` have the largest absolute coefficients</b>, followed by <code>clarity</code>,<code>width</code>and <code>color</code> remains in the model with a smaller coefficient.</p>
+<li><p><b>length</b> and <b>height</b> have the largest absolute coefficients&lt;/b&gt;, followed by <b>clarity</b>,<b>width</b> and <b>color</b> remains in the model with a smaller coefficient.</p>
 </li>
 <li><p>Lasso does not meaningfully improve predictive performance over baseline Linear.</p>
 </li>
@@ -21621,11 +21587,11 @@ class="
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><font size=4, color=#4169E1>💎<b>OBSERVATIONS</b></font></p>
 <ul>
-<li><p>The Ridge Regression model identified <code>length</code> and <code>height</code> as the most influential predictors, with coefficients of 0.573 and 0.404 respectively. <code>clarity</code>, <code>width</code>, and <code>color</code> also contributed positively to the prediction. The variables <code>cut</code> and <code>table</code> exhibited minimal influence, while <b>`carat` showed a small negative coefficient, likely due to multicollinearity with the dimensional features</b>. Overall, the model suggests that the physical dimensions of the diamond are the strongest drivers of the target variable.</p>
+<li><p>The Ridge Regression model identified <code>length</code> and <code>height</code> as the most influential predictors, with coefficients of 0.573 and 0.404 respectively. <code>clarity</code>, <code>width</code>, and <code>color</code> also contributed positively to the prediction. The variables <code>cut</code> and <code>table</code> exhibited minimal influence, while <code>carat</code> showed a small negative coefficient, likely due to multicollinearity with the dimensional features. Overall, the model suggests that the physical dimensions of the diamond are the strongest drivers of the target variable.</p>
 </li>
 <li><p><b>Linear Regression is the preferred model</b> because it achieves essentially the same predictive performance as Ridge and Lasso while remaining the simplest and easiest to interpret. Ridge can be presented as the best regularised alternative, but the improvement is too small to be of practical significance.</p>
 </li>
-<li><p>These results suggest that the underlying linear relationship is strong and that regularisation provides only marginal benefits, indicating that <font color=cadetblue>overfitting is not a significant concern for this dataset</font>.</p>
+<li><p>These results suggest that the underlying linear relationship is strong and that regularisation provides only marginal benefits, indicating that <font color=darkblue>overfitting is not a significant concern for this dataset</font>.</p>
 </li>
 </ul>
 
@@ -21774,7 +21740,7 @@ Optimal l1_ratio: 0.05
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-python"><pre><span></span><span class="c1">#Train Elastic Net Regression Model Using Optimal Alpha and L1 Ratio</span>
+<div class=" highlight hl-python"><pre><span></span><span class="c1"># Train Elastic Net Regression Model Using Optimal Alpha and L1 Ratio</span>
 
 <span class="c1"># Build an ElasticNet regression model with the optimal alpha and l1_ratio</span>
 <span class="sd">'''</span>
@@ -22319,9 +22285,7 @@ Optimal l1_ratio: 0.05
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><font size=4, color=#4169E1>💎<b>OBSERVATIONS</b></font></p>
-<ul>
-<li>The results for the Elastic Net model are almost equivalent to Ridge Regression and offers no meaningful improvement over the baseline Linear Regression model.</li>
-</ul>
+<p>The results for the Elastic Net model are almost equivalent to Ridge Regression and offers no meaningful improvement over the baseline Linear Regression model.</p>
 
 </div>
 </div>
@@ -23424,7 +23388,7 @@ Optimal l1_ratio: 0.05
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><font size=4, color=#4169E1>💎<b>OBSERVATIONS</b></font></p>
 <ul>
-<li><p>Random Forest still remains the better performing tree-based model on RMSE&lt;/b&gt;.</p>
+<li><p><b>Random Forest still remains the better performing tree-based model on RMSE</b>.</p>
 </li>
 <li><p>While Gradient boosting underperforms Random Forest on the selected error metrics, it has an interesting characteristic: its train/validation performance is much closer: Random Forest is more accurate but Gradient Boosting has less train-to-validation seperation.</p>
 </li>
@@ -23802,7 +23766,7 @@ Optimal l1_ratio: 0.05
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><font size=4, color=#4169E1>💎<b>OBSERVATIONS</b></font></p>
 <ul>
-<li><p>The train-validation performance gap provides an indication of model generalisation. The linear, Ridge, Lasso and Elastic Net models exhibited very small RMSE gaps (approximately 13 points), suggesting minimal overfitting but also relatively limited predictive flexibility.</p>
+<li><p>The train-validation performance gap provides an indication of model generalisation. <font color=#0F52BA>The Linear, Ridge, Lasso and/font> Elastic Net models exhibited very small RMSE gaps (approximately 13 points)</font>, suggesting minimal overfitting but also relatively limited predictive flexibility.</p>
 </li>
 <li><p>Introducing interaction terms substantially improved accuracy while maintaining a small gap, indicating good generalisation.</p>
 </li>
@@ -24207,8 +24171,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="8.2.1-SHAP-Summary-Plot-(Beeswarm)"><b>8.2.1 SHAP Summary Plot (Beeswarm)</b><a class="anchor-link" href="#8.2.1-SHAP-Summary-Plot-(Beeswarm)">&#182;</a></h3><p><i> How did features contribute across observations?</i></p>
-
+<h3 id="8.2.1-SHAP-Summary-Plot-(Beeswarm)"><b>8.2.1 SHAP Summary Plot (Beeswarm)</b><a class="anchor-link" href="#8.2.1-SHAP-Summary-Plot-(Beeswarm)">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -25159,7 +25122,7 @@ Selected Features: [&#39;width&#39;, &#39;carat&#39;, &#39;height&#39;, &#39;len
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><font size=4, color=#4169E1>💎<b>OBSERVATIONS</b></font></p>
 <ul>
-<li>Removing <code>width</code>, <code>length</code> and <code>height</code> reduces validation RMSE from &#36;552.97 to &#36;544.79, a modest improvement of approximately 1.5% over the original XGBoost model.</li>
+<li>Removing <code>width</code>, <code>length</code> and <code>height</code> reduces validation RMSE from &#36;552.97 to &#36;544.79, <b>a modest improvement of approximately 1.5% over the original XGBoost model</b>.</li>
 </ul>
 
 </div>
@@ -25663,7 +25626,7 @@ Selected Features: [&#39;width&#39;, &#39;carat&#39;, &#39;height&#39;, &#39;len
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><font color= #0F52BA>Bayesian optimization provides a systematic approach to hyperparameter tuning by using the results of previous trials to guide subsequent searches</font>.</p>
-<p>In this project, <b>Optuna's Tree-structured Parzen Estimator (TPE) sampler</b>explores XGBoost hyperparameters controlling <b>tree complexity</b>, <b>learning rate</b>, <b>sampling and regularization</b>. Each trial is evaluated using RMSE on the validation set, calculated on the original price scale after converting predictions back from the log scale.</p>
+<p>In this project, <b>Optuna's Tree-structured Parzen Estimator (TPE) sampler</b> explores XGBoost hyperparameters controlling <b>tree complexity</b>, <b>learning rate</b>, <b>sampling and regularization</b>. Each trial is evaluated using RMSE on the validation set, calculated on the original price scale after converting predictions back from the log scale.</p>
 <p><b>The objective is to identify a parameter configuration that reduces prediction error while retaining the full feature set</b>.</p>
 
 </div>
@@ -25687,7 +25650,7 @@ Selected Features: [&#39;width&#39;, &#39;carat&#39;, &#39;height&#39;, &#39;len
         <span class="s1">'subsample'</span><span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_float</span><span class="p">(</span><span class="s1">'subsample'</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
         <span class="s1">'colsample_bytree'</span><span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_float</span><span class="p">(</span><span class="s1">'colsample_bytree'</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
         <span class="s1">'min_child_weight'</span><span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_int</span><span class="p">(</span><span class="s1">'min_child_weight'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-        <span class="s1">'reg_alpha'</span><span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_float</span><span class="p">(</span><span class="s1">'reg_alpha'</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="c1"># L1 regularization</span>
+        <span class="s1">'reg_alpha'</span><span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_float</span><span class="p">(</span><span class="s1">'reg_alpha'</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>  <span class="c1"># L1 regularization</span>
         <span class="s1">'reg_lambda'</span><span class="p">:</span> <span class="n">trial</span><span class="o">.</span><span class="n">suggest_float</span><span class="p">(</span><span class="s1">'reg_lambda'</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="c1"># L2 regularization</span>
     <span class="p">}</span>
 
